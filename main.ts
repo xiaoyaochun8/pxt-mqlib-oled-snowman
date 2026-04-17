@@ -10,7 +10,7 @@ namespace mqlib{
     //% block="oled雪人图片"
     export function oledShowSnowMan(): void {
         OLED12864_I2C.clear();
-        mqlib.oledDrawImgWithPixels12864(imOledAnim4SnowMan);
+        OLED12864_I2C.oledDrawImgWithPixels12864(imOledAnim4SnowMan);
     }
     //% subcategory="oled"
     //% group='oled-动效库'
@@ -18,7 +18,7 @@ namespace mqlib{
     //% block="oled雪人动画"
     export function oledDrawAnim4(): void {
         OLED12864_I2C.clear();
-        mqlib.oledDrawImgWithPixels12864(imOledAnim4SnowMan);
+        OLED12864_I2C.oledDrawImgWithPixels12864(imOledAnim4SnowMan);
         let x = 0;
         let y = 0;
         let x2 = 0;
@@ -33,7 +33,7 @@ namespace mqlib{
             if (cnt > 128 * 10) {
                 OLED12864_I2C.clear();
                 cnt = 40;
-                mqlib.oledDrawImgWithPixels12864(imOledAnim4SnowMan);
+                OLED12864_I2C.oledDrawImgWithPixels12864(imOledAnim4SnowMan);
             }
         })
         basic.forever(function () {
@@ -47,7 +47,7 @@ namespace mqlib{
     }
     
     //snowMan
-    let imOledAnim4SnowMan = mqlib.oledCharacterPixels12864(`
+    let imOledAnim4SnowMan = OLED12864_I2C.oledCharacterPixels12864(`
     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
